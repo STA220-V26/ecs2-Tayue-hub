@@ -46,9 +46,11 @@ if (!fs::file_exists("data.zip")) {
 
 list(
   # make the zipdata object refer to the data.zip file path
-  tar_target(zipdata, "data.zip", format = "file")
-
+  tar_target(zipdata, "data.zip", format = "file"), 
+  
   # TODO: Something related to zip should be added here:
+  tar_target(csv_files, zip::unzip(zipdata)), 
+  tar_make()
   # And this comment should be replaced by something more useful
 
   # TODO: uncomment this section when instructed
